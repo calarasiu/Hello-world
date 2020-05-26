@@ -1,2 +1,13 @@
-<h2><%= group.name %></h2>
-<h2><%= group.description %></h2>
+<div class="container">
+  <h2><%= @group.name %></h2>
+  <h2><%= @group.description %></h2>
+  <%= render "posts/new", group: @group, post: @post %>
+  <ul>
+    <% @posts.each do |p| %>
+      <li>
+        <%= p.content %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Back', root_path, class: "btn btn-primary"%>
+</div>
