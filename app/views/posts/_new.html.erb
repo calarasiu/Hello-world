@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for [Post.new] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= link_to 'Back', posts_path, class: "btn btn-primary"%>
+  <% end %>
+</div>
+
