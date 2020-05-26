@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :comments
   has_many :memberships
   has_many :posts
+  validates :last_name, :first_name, presence: true
 end
