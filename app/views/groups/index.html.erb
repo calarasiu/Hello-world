@@ -1,5 +1,12 @@
-<ul>
+
+<div class = "container">
   <% @groups.each do |group| %>
-    <li><%= group.name %></li>
-  <% end %>
-</ul>
+    <div class="card bg-info mb-3" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%=group.name %></h5>
+        <p class="card-text"><%= group.description %></p>
+        <%= link_to "Enter the group", group_path(group.id), class:"btn btn-outline-secondary" %>
+      </div>
+    </div>
+    <%end %>
+</div>

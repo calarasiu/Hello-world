@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :comments
   has_many :memberships
+  has_many :groups, through: :memeberships
   has_many :posts
   validates :last_name, :first_name, presence: true
 end
