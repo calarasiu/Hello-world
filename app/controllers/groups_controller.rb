@@ -6,11 +6,13 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
+    @post = Post.new
+    @posts = Post.all
   end
+
 end
 
 # private
 # def set_group
 #   @group = Group.find(params[:id])
 # end
-
