@@ -1,14 +1,19 @@
-<div class = "container">
-  <% @groups.each do |group| %>
-    <div class="card bg-info mb-3" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"><%=group.name %></h5>
-        <p class="card-text"><%= group.description %></p>
-        <%= link_to "Enter the group", group_path(group.id), class:"btn btn-outline-secondary" %>
-         <% if user_signed_in? %>
-            <% current_user %>
-          <% end %>
+<div class = "groups">
+  <div class = "container index-group" style="width: 70rem;">
+    <% @groups.each do |group| %>
+      <div class="card bg-<%= Group::COLORS.sample %> my-4 mx-5" style="width: 25rem;">
+        <div class="card-body">
+          <div>
+            <h5 class="card-title"><%=group.name %></h5>
+            <p class="card-text"><%= group.description %></p>
+          </div>
+          <%= link_to "Check the group", group_path(group.id), class:"btn btn-outline-dark" %>
+          <% if user_signed_in? %>
+              <% current_user %>
+            <% end %>
+        </div>
       </div>
-    </div>
-  <%end %>
+    <%end %>
+  </div>
 </div>
+
