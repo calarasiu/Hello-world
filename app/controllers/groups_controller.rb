@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
- # before_action :set_group, only: [:show]
+  skip_before_action :authenticate_user!, only: :index
  def index
     @groups = Group.all
   end
@@ -9,10 +9,5 @@ class GroupsController < ApplicationController
     @post = Post.new
     @posts = Post.all
   end
-
 end
 
-# private
-# def set_group
-#   @group = Group.find(params[:id])
-# end
