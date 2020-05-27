@@ -14,21 +14,21 @@
 
 # groups = {
 #       :front_end => {
-#           name: => " Front-end technology", 
+#           name: => " Front-end technology",
 #           description: =>"Share knowledge and resources about essential front-end technologies like HTML5, CSS3, JavaScript"},
 #       :ruby =>{
-#           name:"Ruby masters", 
+#           name:"Ruby masters",
 #           description: "Get help on your Ruby journey or share your experience"},
-#       :database => { 
-#           name: "Database wizards", 
+#       :database => {
+#           name: "Database wizards",
 #           description:"Discover or share the mysteries behind databases"},
 #        :design => {
-#           name: "The artists of websites", 
+#           name: "The artists of websites",
 #           description: "Find inspiration and inspire other users with your design ideas" }
 #         }
 
-puts "delete the group"
-Group.destroy_all
+# puts "delete the group"
+# Group.destroy_all
 puts "create group"
 Group.create!(name: " Front-end technology", description: "Share knowledge and resources about essential front-end technologies like HTML5, CSS3, JavaScript")
 Group.create!(name:"Ruby masters", description: "Get help on your Ruby journey or share your experience")
@@ -36,23 +36,23 @@ Group.create!(name: "Database wizards", description: "Discover or share the myst
 Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
 puts "group created"
 
-puts "delete the posts"
-Post.destroy_all
-puts "create post"
-post = Post.create!(content: "This is the first post", user_id: 3, group_id: 3)
-puts "post created"
+# puts "delete the posts"
+# Post.destroy_all
+# puts "create post"
+# post = Post.create!(content: "This is the first post", user_id: 3, group_id: 3)
+# puts "post created"
 
-puts "delete the comment"
-Comment.destroy_all
-puts "create comment"
-comment = Comment.create!(content: "This is the first comment", post: post, user_id: 3)
-puts "comment created"
+# puts "delete the comment"
+# Comment.destroy_all
+# puts "create comment"
+# comment = Comment.create!(content: "This is the first comment", post: post, user_id: 3)
+# puts "comment created"
 
-puts "delete the bookmark"
-Bookmark.destroy_all
-puts "create bookmark"
-bookmark = Bookmark.create!(post: post, user_id: 3)
-puts "bookmark created"
+# puts "delete the bookmark"
+# Bookmark.destroy_all
+# puts "create bookmark"
+# bookmark = Bookmark.create!(post: post, user_id: 3)
+# puts "bookmark created"
 
 
 
