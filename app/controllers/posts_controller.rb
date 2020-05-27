@@ -9,8 +9,15 @@ class PostsController < ApplicationController
     else
       flash[:notice] = "You need to login before adding a post"
       # render "posts/new" we don't need to render because we are staying on the same page
-      
+
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @group = @post.group
+    @post.destroy
+    redirect_to group_path(@group)
   end
 
 private
