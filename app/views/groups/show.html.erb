@@ -1,15 +1,27 @@
 <div class="container">
   <h2><%= @group.name %></h2>
   <p><%= @group.description %></p>
-  <%= render "posts/new", group: @group, post: @post %>
-  
-  <% @posts.each do |p| %>
+
+  <% @posts.each do |post| %>
     <div class="card my-3" >
       <div class="card-body">
         <h5 class="card-title">user_name(to do)</h5>
-        <p class="card-text"><%= p.content %></p>
+        <p class="card-text"><%= post.content %></p>
+        <%= link_to 'Delete Post', post_path(post), method: :delete, class: "btn btn-primary"%>
+        <% post.comments.each do |comment| %>
+           <p><%= comment.content %></p>
+        <% end %>
+
+        <%= render "comments/new" , comment: @comment%>
+
       </div>
     </div>
   <% end %>
   <%= link_to 'Back', groups_path, class: "btn btn-primary"%>
+
+
+
+  <%= render "posts/new" , group: @group, post: @post%>
+
+
 </div>
