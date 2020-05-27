@@ -1,5 +1,40 @@
 // Specific CSS for your home-page
+body{
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 100 !important;
+  background: #FAF4F4;
+  color: black;
+}
 
+.banner{
+  position: relative;
+
+}// Specific CSS for your home-page
+
+.banner-image{
+  height: 750px;
+  width: 100vw;
+  background-size: cover;
+}
+
+.banner h1 {
+  font-weight: bold;
+}
+
+// .banner p {
+//   font-size: 20px;
+//   color: #FAF4F4;
+//   opacity: .7;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+// }
+.banner-text {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  // text-align: center;
+  position: absolute;
+  color: white;
+  top: -5px;
+}
 
 //form
 .form-inputs {
@@ -9,14 +44,43 @@
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   h2 {
+    margin-top: 20px;
     font-size: 35px;
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
+    color: black;
   }
   .btn {
     width: 100%;
     margin-bottom: 20px;
-    background: #5fdde5;
+    background: #FE5D02;
   }
+}
+
+.nav-item {
+  // width: 100%;
+  margin-left: 9px;
+  // margin-bottom: 10px;
+  background: #FE5D02;
+  padding: 2px;
+
+  font-weight: bold;
+  border-radius: 3px;
+}
+
+.nav-link {
+  color: white !important;
+  // font-size: 25px;
+}
+.footer {
+  font-size: 20px;
+  margin-bottom: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
 }
