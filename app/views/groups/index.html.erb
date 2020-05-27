@@ -6,7 +6,7 @@
         <p class="card-text"><%= group.description %></p>
         <%= link_to "Enter the group", group_path(group.id), class:"btn btn-outline-secondary" %>
          <% if user_signed_in? %>
-            <%= current_user %>
+            <% current_user %>
           <% end %>
       </div>
     </div>
