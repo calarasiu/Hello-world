@@ -8,11 +8,10 @@ body{
 
 .banner{
   position: relative;
+}
 
-}// Specific CSS for your home-page
-
-.banner-image{
-  height: 750px;
+.banner-image {
+  height: 500px;
   width: 100vw;
   background-size: cover;
 }
@@ -21,16 +20,9 @@ body{
   font-weight: bold;
 }
 
-// .banner p {
-//   font-size: 20px;
-//   color: #FAF4F4;
-//   opacity: .7;
-//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-// }
 .banner-text {
   margin-top: 100px;
   margin-bottom: 50px;
-  // text-align: center;
   position: absolute;
   color: white;
   top: -5px;
@@ -52,27 +44,18 @@ body{
     color: black;
   }
   .btn {
-    width: 100%;
+    border-radius: 3px;
     margin-bottom: 20px;
     background: #FE5D02;
   }
 }
 
-.nav-item {
-  // width: 100%;
-  margin-left: 9px;
-  // margin-bottom: 10px;
-  background: #FE5D02;
-  padding: 2px;
+ .btn {
+    border-radius: 3px;
+    margin-bottom: 20px;
+    background: #FE5D02;
+  }
 
-  font-weight: bold;
-  border-radius: 3px;
-}
-
-.nav-link {
-  color: white !important;
-  // font-size: 25px;
-}
 .footer {
   font-size: 20px;
   margin-bottom: 20px;
