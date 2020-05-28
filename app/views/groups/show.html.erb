@@ -27,8 +27,8 @@
         <div class="card-body">
           <h5 class="card-title">user_name(to do)</h5>
           <p class="card-text"><%= p.content %></p>
-            <%= link_to 'Delete Post', post_path(post), method: :delete, class: "btn btn-primary"%>
-            <% post.comments.each do |comment| %>
+            <%= link_to 'Delete Post', post_path(p), method: :delete, class: "btn btn-primary"%>
+            <% p.comments.each do |comment| %>
                 <p><%= comment.content %></p>
             <% end %>
           
@@ -39,7 +39,7 @@
     <% end %>
     <%= link_to 'Back', groups_path, class: "btn btn-primary"%>
     
-    <%= render "posts/new" , group: @group, post: @post%>
+    <%# <%= render "posts/new" , group: @group, post: @post%>
   </div>
 
    <div class="col-2">
