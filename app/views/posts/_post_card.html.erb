@@ -6,7 +6,7 @@
           <strong><%= post.user.email %></strong>
         </div>
 
-        <%= link_to "Bookmark post", post_bookmarks_path(post.id), method: :post %>
+        <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
       </div>
       <hr>
       <div class="post-body">
@@ -20,9 +20,8 @@
         <div class="bg-light mb-2 p-3 rounded">
           <div class="d-flex justify-content-between align-items-center">
             <p><strong><%= comment.user.email %></strong></p>
-
             <% if current_user && current_user == comment.user %>
-              <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-white btn-sm"%>
+              <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
             <% end %>
           </div>
 
