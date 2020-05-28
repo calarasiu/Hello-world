@@ -5,8 +5,17 @@
           <%= image_tag "avatar.jpg", class: "avatar" %>
           <strong><%= post.user.email %></strong>
         </div>
-
-        <%= link_to "Bookmark post", post_bookmarks_path(post.id), method: :post %>
+     
+        <div>
+          <% if current_user.bookmarks.where(post_id: post.id).empty? %>
+            <%= link_to "Bookmark post", post_bookmarks_path(post.id), method: :post %>
+          <% else %>
+            <p>Post saved</p>
+          <%end %>
+          <% if current_user && current_user == post.user %>
+            <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-white btn-sm"%>
+          <% end %>
+        </div>
       </div>
       <hr>
       <div class="post-body">
