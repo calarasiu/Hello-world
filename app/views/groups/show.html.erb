@@ -11,7 +11,7 @@
     <p><%= @group.description %></p>
 
      <div class="group-form">
-      <p>Comments: <%= render "posts/new", group: @group, post: @post %></p>
+       <%= render "posts/new", group: @group, post: @post %>
     </div>
   </div>
   <% @posts.each do |post| %>
