@@ -1,5 +1,32 @@
 // Specific CSS for your home-page
+body{
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 100 !important;
+  background: #FAF4F4;
+  color: black;
+}
 
+.banner{
+  position: relative;
+}
+
+.banner-image {
+  height: 500px;
+  width: 100vw;
+  background-size: cover;
+}
+
+.banner h1 {
+  font-weight: bold;
+}
+
+.banner-text {
+  margin-top: 100px;
+  margin-bottom: 50px;
+  position: absolute;
+  color: white;
+  top: -5px;
+}
 
 //form
 .form-inputs {
@@ -9,14 +36,34 @@
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   h2 {
+    margin-top: 20px;
     font-size: 35px;
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
+    color: black;
   }
   .btn {
-    width: 100%;
+    border-radius: 3px;
     margin-bottom: 20px;
-    background: #5fdde5;
+    background: #FE5D02;
   }
+}
+
+ .btn {
+    border-radius: 3px;
+    margin-bottom: 20px;
+    background: #FE5D02;
+  }
+
+.footer {
+  font-size: 20px;
+  margin-bottom: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
 }

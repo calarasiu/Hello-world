@@ -1,27 +1,38 @@
-<div class="container">
-  <h2><%= @group.name %></h2>
-  <p><%= @group.description %></p>
+<div class="container d-flex">
+
+  <div class="col-2">
+    <h3>Group:</h3>
+  </div>
+
+  <div class="col-8">
+    <h2><%= @group.name %></h2>
+    <p><%= @group.description %></p>
+
+   <div class="group-form">
+    <%= render "posts/new", group: @group, post: @post %>
+  </div>
 
   <% @posts.each do |post| %>
     <div class="card my-3" >
       <div class="card-body">
         <h5 class="card-title">user_name(to do)</h5>
         <p class="card-text"><%= post.content %></p>
-        <%= link_to 'Delete Post', post_path(post), method: :delete, class: "btn btn-primary"%>
         <% post.comments.each do |comment| %>
-           <p><%= comment.content %></p>
+          <div class="card my-3" >
+            <div class="card-body">
+              <h5 class="card-title">user_name(to do)</h5>
+              <p class="card-text"><%= comment.content %></p>
+            </div>
+          </div>
         <% end %>
-
-        <%= render "comments/new" , comment: @comment%>
-
+        <div class="group-form">
+         <%= render "comments/new" , comment: @comment%>
+        </div>
       </div>
+        <%= link_to 'Delete Post', post_path(post), method: :delete, class: "btn"%>
     </div>
   <% end %>
-  <%= link_to 'Back', groups_path, class: "btn btn-primary"%>
 
-
-
-  <%= render "posts/new" , group: @group, post: @post%>
-
+  <%= link_to 'Back', groups_path, class: "btn"%>
 
 </div>
