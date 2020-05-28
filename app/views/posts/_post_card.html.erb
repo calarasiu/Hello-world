@@ -8,7 +8,7 @@
      
         <div>
           <% if current_user.bookmarks.where(post_id: post.id).empty? %>
-            <%= link_to "Bookmark post", post_bookmarks_path(post.id), method: :post %>
+            <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
           <% else %>
             <p>Post saved</p>
           <%end %>
@@ -16,6 +16,7 @@
             <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-white btn-sm"%>
           <% end %>
         </div>
+        
       </div>
       <hr>
       <div class="post-body">
@@ -29,9 +30,8 @@
         <div class="bg-light mb-2 p-3 rounded">
           <div class="d-flex justify-content-between align-items-center">
             <p><strong><%= comment.user.email %></strong></p>
-
             <% if current_user && current_user == comment.user %>
-              <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-white btn-sm"%>
+              <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
             <% end %>
           </div>
 
