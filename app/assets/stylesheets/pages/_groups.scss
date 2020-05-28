@@ -1,20 +1,24 @@
 .groups{
-  background-color: rgb(230, 225, 225);
-  // -image: asset-url('puzzle.jpg');
+  padding-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
 }
-.card{
+.group-card{
   border-radius: $border-radius-lg;
   color: black;
-  box-shadow:3px 5px 30px 3px grey;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
 }
 
 .card-body{
-  display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
  }
 
- 
  .index-group{
    display: flex;
    flex-wrap: wrap;
@@ -26,12 +30,11 @@
   border-radius: $border-radius-sm;
   width: fit-content;
   border: none;
-   
+
  }
 
  .card-title{
   font-weight: bold;
   margin-bottom: 2px;
  }
- 
- 
+

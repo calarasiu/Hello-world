@@ -7,7 +7,8 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @post = Post.new
-    @posts = Post.all
+    @posts = @group.posts
+    @bookmark = Bookmark.new
   end
 end
 
