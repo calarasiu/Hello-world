@@ -1,7 +1,8 @@
 <div class = "groups">
+  
   <div class = "container index-group" style="width: 70rem;">
     <% @groups.each do |group| %>
-      <div class="card bg-<%= Group::COLORS.sample %> my-4 mx-5" style="width: 25rem;">
+      <div class="card my-4 mx-5" style="width: 25rem;">
         <div class="card-body">
           <div>
             <h5 class="card-title"><%=group.name %></h5>
@@ -17,3 +18,4 @@
   </div>
 </div>
 
+<%# bg-<%= Group::COLOR[0] %>
