@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+
+  def default_url_options
+  { host: ENV["www.thehelloworld.dev"] || "localhost:3000" }
+  end
+
   # [...]
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
