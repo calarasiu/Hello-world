@@ -8,25 +8,29 @@ body{
 
 .banner{
   position: relative;
-}
-
-.banner-image {
-  height: 500px;
-  width: 100vw;
   background-size: cover;
+  padding: 100px 0;
+  p {
+    font-size: 24px;
+  }
 }
 
-.banner h1 {
-  font-weight: bold;
-}
+// .banner-image {
+//   height: 500px;
+//   width: 100vw;
+// }
 
-.banner-text {
-  margin-top: 100px;
-  margin-bottom: 50px;
-  position: absolute;
-  color: white;
-  top: -5px;
-}
+// .banner h1 {
+//   font-weight: bold;
+// }
+
+// .banner-text {
+//   margin-top: 100px;
+//   margin-bottom: 50px;
+//   position: absolute;
+//   color: white;
+//   top: -5px;
+// }
 
 //form
 .form-inputs {
@@ -43,19 +47,19 @@ body{
     text-align: center;
     color: black;
   }
-  .btn {
-    border-radius: 3px;
-    margin-bottom: 20px;
-    background: #FE5D02;
-  }
+  // .btn {
+  //   border-radius: 3px;
+  //   margin-bottom: 20px;
+  //   background: #FE5D02;
+  // }
 }
 
- .btn {
-    border-radius: 3px;
-    margin-bottom: 20px;
-    background: #FE5D02;
-    width: fit-content;
-  }
+ // .btn {
+ //    border-radius: 3px;
+ //    margin-bottom: 20px;
+ //    background: #FE5D02;
+ //    width: fit-content;
+ //  }
 
 .footer {
   font-size: 20px;
