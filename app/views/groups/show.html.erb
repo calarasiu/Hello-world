@@ -5,31 +5,38 @@
   </div>
 
   <div class="col-8">
+    <div class="card">
+
     <h2><%= @group.name %></h2>
     <p><%= @group.description %></p>
 
-   <div class="group-form">
-    <%= render "posts/new", group: @group, post: @post %>
+     <div class="group-form">
+      <p>Comments: <%= render "posts/new", group: @group, post: @post %></p>
+    </div>
   </div>
-
   <% @posts.each do |post| %>
     <div class="card my-3" >
       <div class="card-body">
         <h5 class="card-title">user_name(to do)</h5>
         <p class="card-text"><%= post.content %></p>
+          <% if current_user && current_user == post.user %>
+            <%= link_to 'Delete Post', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"%>
+          <% end %>
         <% post.comments.each do |comment| %>
           <div class="card my-3" >
             <div class="card-body">
               <h5 class="card-title">user_name(to do)</h5>
               <p class="card-text"><%= comment.content %></p>
             </div>
+            <% if current_user && current_user == comment.user %>
+              <%= link_to 'Delete Comment', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn"%>
+            <% end %>
           </div>
         <% end %>
         <div class="group-form">
-         <%= render "comments/new" , comment: @comment%>
+         <%= render "comments/new", post: post%>
         </div>
       </div>
-        <%= link_to 'Delete Post', post_path(post), method: :delete, class: "btn"%>
     </div>
   <% end %>
 
