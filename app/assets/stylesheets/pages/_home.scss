@@ -8,11 +8,10 @@ body{
 
 .banner{
   position: relative;
-
 }
 
-.banner-image{
-  height: 750px;
+.banner-image {
+  height: 500px;
   width: 100vw;
   background-size: cover;
 }
@@ -20,6 +19,7 @@ body{
 .banner h1 {
   font-weight: bold;
 }
+
 .banner-text {
   margin-top: 100px;
   margin-bottom: 50px;
