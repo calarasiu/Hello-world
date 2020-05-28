@@ -3,12 +3,12 @@ class BookmarksController < ApplicationController
     @post = Post.find(params[:post_id])
     @user = current_user
     @bookmark = Bookmark.new(post: @post, user: @user)
-    if @bookmark.save
-      redirect_to @post.group
-    else 
-      flash[:alert] = "Your post was not saved" 
-      redirect_to @post.group
-    end
+      if @bookmark.save
+        redirect_to @post.group
+      else 
+        flash[:alert] = "Your post was not saved" 
+        redirect_to @post.group
+      end
   end 
 
   def index 
