@@ -1,18 +1,6 @@
 <div class="card my-2" >
   <%@bookmarks.each do |b| %>
-      <div class="card-body">
-        <h5 class="card-title"><%= b.post.user.first_name%></h5>
-        <p class="card-text"><%= b.post.content %></p>
-        <% b.post.comments.each do |comment| %>
-          <div class="card my-2" >
-            <div class="card-body">
-              <h5 class="card-title"> <%= comment.user.first_name%> </h5>
-              <p class="card-text"><%= comment.content %></p>
-            </div>
-          </div>
-        <% end %>
-        <div class="group-form">
-        </div>
-      </div>
+    <%= render 'posts/post_card', post: b.post %>
+
   <% end %>
 </div>

@@ -1,7 +1,5 @@
-<div class="container">
-  <%= simple_form_for [post, Comment.new] do |f| %>
-    <%= f.input :content %>
-    <%= f.submit "Submit", class: "btn" %>
-  <% end %>
-</div>
+<%= simple_form_for [post, Comment.new] do |f| %>
+  <%= f.input :content, label: false, placeholder: "Write your comment" %>
+  <%= f.submit "Submit", class: "btn btn-secondary" %>
+<% end %>
 

@@ -1,0 +1,35 @@
+    <div class="card p-3 mb-3">
+      <div class="post-author d-flex justify-content-between align-items-center">
+
+        <div>
+          <%= image_tag "avatar.jpg", class: "avatar" %>
+          <strong><%= post.user.email %></strong>
+        </div>
+
+        <%= link_to "Bookmark post", post_bookmarks_path(post.id), method: :post %>
+      </div>
+      <hr>
+      <div class="post-body">
+        <p class="card-text"><%= post.content %></p>
+      </div>
+      <hr>
+      <div class="post-comments">
+        <span class="small text-muted">Comments</span>
+        <!-- comments here -->
+        <% post.comments.each do |comment| %>
+        <div class="bg-light mb-2 p-3 rounded">
+          <div class="d-flex justify-content-between align-items-center">
+            <p><strong><%= comment.user.email %></strong></p>
+
+            <% if current_user && current_user == comment.user %>
+              <%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn bg-white btn-sm"%>
+            <% end %>
+          </div>
+
+          <p><%= comment.content %></p>
+        </div>
+
+        <% end %>
+        <%= render "comments/new", post: post%>
+      </div>
+    </div>
