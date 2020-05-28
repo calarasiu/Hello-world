@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
     @comment.post = @post
+    @comment.user = current_user
     if @comment.save
-       redirect_to group_path(@group)
+       redirect_to group_path(@post.group)
     else
       flash[:notice] = "comment column cannot be left blank"
       # render 'groups/show'
