@@ -1,4 +1,8 @@
 class PostsController < ApplicationController
+  def index 
+    # @group = Group.find(params[:group_id])
+    @posts = current_user.posts
+  end
   def create
     @post = Post.new(post_params)
     @group = Group.find(params[:group_id])
