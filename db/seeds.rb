@@ -57,7 +57,7 @@ Group.create!(name:"Javascript semi-colons", description: "If you love javascrip
 Group.create!(name:"Junior developers", description: "Find help and all the junior developers to progress together")
 Group.create!(name:"Job hunting support", description: "Find the best tips and exchange experiences")
 Group.create!(name:"Portfolios and projects", description: "Share your projects and portfolios and get feedbacks")
-Group.create!(name:"Womens in tech", description: "Comunity that promotes gender diversity in tech")
+Group.create!(name:"Women in tech", description: "Comunity that promotes gender diversity in tech")
 
 
 
