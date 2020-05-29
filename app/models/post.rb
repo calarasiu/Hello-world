@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def content_with_links
-
     urls = URI.extract(content, ['http', 'https'])
     urls.each do |url|
       url.delete_suffix!(url[-1]) if url[-1].match?(/\W/)
