@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :groups, only: [:index, :show] do
     resources :membership, only: [:create]
-    resources :posts, only: [:create]
+    resources :posts, only: [:create,]
   end
 
   resources :posts, only: [:destroy] do
@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: [:index]
   resources :comments, only: [:destroy]
+  resources :posts, only: [:index]
 end

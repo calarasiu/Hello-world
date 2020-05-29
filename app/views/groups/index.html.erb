@@ -6,6 +6,11 @@
       <div class="group-info">
         <h5 class="card-title"><%=group.name %></h5>
         <p class="card-text"><%= group.description %></p>
+        <div class="d-flex">
+          <% group.users.each do |user| %>
+            <%= image_tag 'avatar.jpg', class: 'avatar mr-n2' %>
+          <% end %>
+        </div>
       </div>
       <%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %>
     </div>

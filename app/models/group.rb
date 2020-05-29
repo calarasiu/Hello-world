@@ -1,6 +1,5 @@
 class Group < ApplicationRecord
   has_many :posts
   has_many :memberships
-  has_many :users, through: :memberships
-  COLOR = ["warning"]
+  has_many :users, through: :posts
 end
