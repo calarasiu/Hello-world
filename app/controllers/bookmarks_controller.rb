@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
     @user = current_user
     @bookmark = Bookmark.new(post: @post, user: @user)
       if @bookmark.save
-        redirect_to @post.group
+        redirect_to group_path(@post.group)
       else 
         flash[:alert] = "Your post was not saved" 
         redirect_to group_path(@post.group)

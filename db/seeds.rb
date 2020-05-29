@@ -53,7 +53,21 @@ Group.create!(name: " Front-end technology", description: "Share knowledge and r
 Group.create!(name:"Ruby masters", description: "Get help on your Ruby journey or share your experience")
 Group.create!(name: "Database wizards", description: "Discover or share the mysteries behind databases")
 Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+Group.create!(name:"Javascript semi-colons", description: "If you love javascript and curly brackets, join the group")
+Group.create!(name:"Junior developers", description: "Find help and all the junior developers to progress together")
+# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+
+
+
 puts "group created"
+
+
+
 
 
 
