@@ -12,22 +12,25 @@
           <%= avatar(post) %> 
           <strong><%= post.user.email %></strong>
         </div>
+         <h6> <%=link_to "#{post.group.name}", group_path(post.group_id)%></h6>
 
         <div>
-          <% if current_user.bookmarks.where(post_id: post.id).empty? %>
-            <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
-          <% else %>
-            <%= link_to "", "#", class: "fas fa-bookmark"%>
-          <%end %>
-          <% if current_user && current_user == post.user %>
-            <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
-          <% end %>
+          <div>
+            <% if current_user.bookmarks.where(post_id: post.id).empty? %>
+              <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
+            <% else %>
+              <%= link_to "", "#", class: "fas fa-bookmark"%>
+            <%end %>
+            <% if current_user && current_user == post.user %>
+              <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
+            <% end %>
+          </div>
         </div>
 
       </div>
       <hr>
       <div class="post-body">
-        <p class="card-text"><%= post.content_with_links %></p>
+        <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
       </div>
       <hr>
       <div class="post-comments">
