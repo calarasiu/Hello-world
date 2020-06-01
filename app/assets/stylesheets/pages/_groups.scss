@@ -15,9 +15,6 @@
   align-items: start;
 }
 
-.card-body{
-
- }
 
  .index-group{
    display: flex;
@@ -25,8 +22,7 @@
  }
 
  .btn-outline-dark{
-   font-weight: bold;
-  //  background-color: $bkcolor;
+  font-weight: bold;
   border-radius: $border-radius-sm;
   width: fit-content;
   border: none;

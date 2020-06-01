@@ -6,6 +6,16 @@ class Comment < ApplicationRecord
   validates :content, presence: true
   validates :content, length: { minimum: 1 }
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against:[:content],
+      associated_against: {
+        post: [:content]
+      },
+      using: {
+        tsearch: {prefix: true}
+      }
+
   def content_with_links
     urls = URI.extract(content, ['http', 'https'])
     urls.each do |url|
