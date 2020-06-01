@@ -10,9 +10,9 @@
       <div class="post-author d-flex justify-content-between align-items-center">
         <div>
           <%= avatar(post) %> 
-          <strong><%= post.user.first_name %></strong>
+          <strong ><%= post.user.first_name%></strong>
         </div>
-         <h6> <%=link_to "#{post.group.name}", group_path(post.group_id)%></h6>
+         <h6 id="upvote-<%=post.id%>"><%=link_to "#{post.group.name}", group_path(post.group_id), remote: true%></h6>
 
         <div>
           <div>
@@ -34,7 +34,7 @@
       </div>
       <hr>
       <div>
-        <p id = "upvote-<%post.id%>"><%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket", remote: true %></p>
+        <%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket"%>
         <%= post.upvotes.count %>
       </div>
       <hr>
