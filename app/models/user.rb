@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memeberships
   has_many :posts, dependent: :destroy
+  has_many :notifications
   validates :last_name, :first_name, presence: true
   has_one_attached :photo
 end

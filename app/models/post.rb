@@ -17,5 +17,5 @@ class Post < ApplicationRecord
       content.gsub!(url, "<a href='#{url}' target='_blank' class='primary-text'>#{url}</a>")
     end
     content.html_safe
-  end 
+  end
 end
