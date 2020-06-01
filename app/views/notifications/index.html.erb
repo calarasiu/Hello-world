@@ -1,6 +1,10 @@
-<h1>Hi there here are your new notifications</h1>
-  <ul>
-    <% @notifications.each do |notification| %>
-      <%= @comment.notification %>
-    <% end %>
-  </ul>
+<div>
+  <h1>Hi there here are your new notifications</h1>
+    <ul>
+      <% @notifications.each do |notification| %>
+       <li>
+         <%= render "posts/post_card", post: notification.comment.post %>
+       </li>
+      <% end %>
+    </ul>
+</div>
