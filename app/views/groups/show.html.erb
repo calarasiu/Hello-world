@@ -2,6 +2,7 @@
   <div class="rounded bg-primary p-5 mt-3">
     <h2><%= @group.name %></h2>
     <p><%= @group.description %></p>
+    <p class="post-count"><%= @group.posts.count > 0 ? pluralize(@group.posts.count, 'post') : "No Post" %></p>
   </div>
   <div class="card px-5 py-3 my-3">
     <%= render "posts/new", group: @group, post: @post %>

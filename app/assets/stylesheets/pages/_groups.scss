@@ -15,6 +15,18 @@
   align-items: start;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+
+}
+
+.post-count{
+  font-weight:bold;
+}
+
 .card-body{
 
  }
