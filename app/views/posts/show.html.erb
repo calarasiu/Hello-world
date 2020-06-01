@@ -1,3 +1,27 @@
+<div class="container">
+  <div class="rounded bg-primary p-5 mt-3">
+    <h2><%= @group.name %></h2>
+    <p><%= @group.description %></p>
+    <div class = "d-flex" >
+      <div>
+        <%= form_tag group_path(@group.id), method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search in the group"
+        %>
+      </div>
+      <div>
+       <%= link_to "X",group_path(@group.id), class: "btn btn-primary " %>
+      </div>
+      <div>
+        <%= submit_tag "Search", class: "btn btn-primary " %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
     <% def avatar(arg)%>
       <%if arg.user.photo.attached?%>
         <%= cl_image_tag arg.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -9,47 +33,32 @@
     <div class="card p-3 mb-3">
       <div class="post-author d-flex justify-content-between align-items-center">
         <div>
-          <%= avatar(post) %> 
-          <strong ><%= post.user.first_name%></strong>
+          <%= avatar(@post) %>
+          <strong><%= @post.user.email %></strong>
         </div>
-         <h6 id="upvote-<%=post.id%>"><%=link_to "#{post.group.name}", group_path(post.group_id), remote: true%></h6>
+         <h6> <%=link_to "#{@post.group.name}", group_path(@post.group_id)%></h6>
 
         <div>
           <div>
-            <%= link_to "https://twitter.com/intent/tweet?text=#{post.content}&url=/groups/#{@group.id}/posts/#{post.id}", target: "_blank" do %>
-          <i class="fab fa-twitter"></i>
-        <% end %>
-            <% if current_user.bookmarks.where(post_id: post.id).empty? %>
-              <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
-            <% else %>
-              <%= link_to "", "#", class: "fas fa-bookmark"%>
-            <%end %>
-            <% if current_user && current_user == post.user %>
-              <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
-            <% end %>
+
           </div>
         </div>
 
       </div>
       <hr>
       <div class="post-body">
-        <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
-      </div>
-      <hr>
-      <div>
-        <%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket"%>
-        <%= post.upvotes.count %>
+        <p id="post-<%= @post.id %>" class="card-text"><%= @post.content_with_links %></p>
       </div>
       <hr>
       <div class="post-comments">
         <span class="small text-muted">Comments</span>
         <!-- comments here -->
-        <% post.comments.each do |comment| %>
+        <% @post.comments.each do |comment| %>
         <div class="bg-light mb-2 p-3 rounded">
           <div class="post-author d-flex justify-content-between align-items-center">
             <div class = "d-flex align-items-center justify-content-between">
               <%= avatar(comment) %>
-              <span class="ml-2"><strong><%= comment.user.first_name %></strong></span>
+              <strong><%= comment.user.email %></strong>
             </div>
             <div>
               <% if current_user && current_user == comment.user %>
@@ -58,11 +67,10 @@
             </div>
           </div>
           <hr>
-          <div class="comment-body">
-            <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
-          </div>
+          <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
         </div>
         <% end %>
-        <%= render "comments/new", post: post%>
+
       </div>
     </div>
+  </div>
