@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  def index 
+  def index
     # @group = Group.find(params[:group_id])
     @posts = current_user.posts
   end

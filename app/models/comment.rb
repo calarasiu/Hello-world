@@ -5,6 +5,7 @@ class Comment < ApplicationRecord
   belongs_to :post
   validates :content, presence: true
   validates :content, length: { minimum: 1 }
+  has_many :notifications, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -23,5 +24,5 @@ class Comment < ApplicationRecord
       content.gsub!(url, "<a href='#{url}' target='_blank' class='primary-text'>#{url}</a>")
     end
     content.html_safe
-  end 
+  end
 end
