@@ -49,7 +49,7 @@
           <div class="post-author d-flex justify-content-between align-items-center">
             <div class = "d-flex align-items-center justify-content-between">
               <%= avatar(comment) %>
-              <strong><%= comment.user.first_name %></strong>
+              <span class="ml-2"><strong><%= comment.user.first_name %></strong></span>
             </div>
             <div>
               <% if current_user && current_user == comment.user %>
@@ -58,7 +58,9 @@
             </div>
           </div>
           <hr>
-          <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
+          <div class="comment-body">
+            <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
+          </div>
         </div>
         <% end %>
         <%= render "comments/new", post: post%>
