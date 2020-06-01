@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_30_200614) do
+ActiveRecord::Schema.define(version: 2020_06_01_101503) do
+ActiveRecord::Schema.define(version: 2020_06_01_111256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +72,17 @@ ActiveRecord::Schema.define(version: 2020_05_30_200614) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "comment_id", null: false
+    t.bigint "user_id", null: false
+    t.boolean "read", default: false
+    t.string "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "pg_search_documents", force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
@@ -88,6 +100,15 @@ ActiveRecord::Schema.define(version: 2020_05_30_200614) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["group_id"], name: "index_posts_on_group_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_upvotes_on_post_id"
+    t.index ["user_id"], name: "index_upvotes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,6 +132,10 @@ ActiveRecord::Schema.define(version: 2020_05_30_200614) do
   add_foreign_key "comments", "users"
   add_foreign_key "memberships", "groups"
   add_foreign_key "memberships", "users"
+  add_foreign_key "notifications", "comments"
+  add_foreign_key "notifications", "users"
   add_foreign_key "posts", "groups"
   add_foreign_key "posts", "users"
+  add_foreign_key "upvotes", "posts"
+  add_foreign_key "upvotes", "users"
 end

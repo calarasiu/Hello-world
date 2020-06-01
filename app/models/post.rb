@@ -1,4 +1,3 @@
-
 require "uri"
 class Post < ApplicationRecord
   belongs_to :user
@@ -6,6 +5,7 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   validates :content, presence: true
   has_many :comments, dependent: :destroy
+  has_many :upvotes, dependent: :destroy
 
   include PgSearch::Model
   pg_search_scope :global_search,
@@ -17,5 +17,5 @@ class Post < ApplicationRecord
       content.gsub!(url, "<a href='#{url}' target='_blank' class='primary-text'>#{url}</a>")
     end
     content.html_safe
-  end 
+  end
 end
