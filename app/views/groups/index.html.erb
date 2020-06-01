@@ -14,10 +14,10 @@
           <% end %>
         </div>
       </div>
-      <div class="flex-container">
-      <p><%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %></p>
-      <p class="post-count" ><%= group.posts.count > 0 ? pluralize(group.posts.count, 'post') : "No Post" %></p>
-    </div>
+      <div>
+        <p><%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %></p>
+        <p class="post-count" ><%= group.posts.count > 0 ? pluralize(group.posts.count, 'post') : "No Post" %></p>
+      </div>
   </div>
   <%end %>
 </div>
