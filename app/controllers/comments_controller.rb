@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to group_path(@comment.post.group)
+    redirect_to group_path(@comment.post.group, anchor: "upvote-#{@comment.post_id}")
   end
 
   private
