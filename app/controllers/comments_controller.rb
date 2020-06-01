@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     if @comment.save
-       redirect_to group_path(@post.group)
+       redirect_to group_path(@post.group, anchor: "comment-#{@comment.id}") 
     else
       flash[:notice] = "comment column cannot be left blank"
       # render 'groups/show'

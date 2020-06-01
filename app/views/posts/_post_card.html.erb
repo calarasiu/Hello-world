@@ -1,26 +1,36 @@
+    <% def avatar(arg)%>
+      <%if arg.user.photo.attached?%>
+        <%= cl_image_tag arg.user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%else %>
+        <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%end %>
+
+    <%end %>
     <div class="card p-3 mb-3">
       <div class="post-author d-flex justify-content-between align-items-center">
-
         <div>
-          <%= image_tag "avatar.jpg", class: "avatar" %>
+          <%= avatar(post) %> 
           <strong><%= post.user.email %></strong>
         </div>
+         <h6> <%=link_to "#{post.group.name}", group_path(post.group_id)%></h6>
 
         <div>
-          <% if current_user.bookmarks.where(post_id: post.id).empty? %>
-            <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
-          <% else %>
-            <%= link_to "", "#", class: "fas fa-bookmark"%>
-          <%end %>
-          <% if current_user && current_user == post.user %>
-            <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
-          <% end %>
+          <div>
+            <% if current_user.bookmarks.where(post_id: post.id).empty? %>
+              <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
+            <% else %>
+              <%= link_to "", "#", class: "fas fa-bookmark"%>
+            <%end %>
+            <% if current_user && current_user == post.user %>
+              <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
+            <% end %>
+          </div>
         </div>
 
       </div>
       <hr>
       <div class="post-body">
-        <p class="card-text"><%= post.content_with_links %></p>
+        <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
       </div>
       <hr>
       <div class="post-comments">
@@ -28,16 +38,20 @@
         <!-- comments here -->
         <% post.comments.each do |comment| %>
         <div class="bg-light mb-2 p-3 rounded">
-          <div class="d-flex justify-content-between align-items-center">
-            <p><strong><%= comment.user.email %></strong></p>
-            <% if current_user && current_user == comment.user %>
-              <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
-            <% end %>
+          <div class="post-author d-flex justify-content-between align-items-center">
+            <div class = "d-flex align-items-center justify-content-between">
+              <%= avatar(comment) %> 
+              <strong><%= comment.user.email %></strong>
+            </div>
+            <div>
+              <% if current_user && current_user == comment.user %>
+                <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "far fa-trash-alt"%>
+              <% end %>
+            </div>
           </div>
-
-          <p><%= comment.content %></p>
+          <hr>
+          <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
         </div>
-
         <% end %>
         <%= render "comments/new", post: post%>
       </div>
