@@ -9,14 +9,14 @@
     <div class="card p-3 mb-3">
       <div class="post-author d-flex justify-content-between align-items-center">
         <div>
-          <%= avatar(post) %> 
+          <%= avatar(post) %>
           <strong ><%= post.user.first_name%></strong>
         </div>
          <h6 id="upvote-<%=post.id%>"><%=link_to "#{post.group.name}", group_path(post.group_id), remote: true%></h6>
 
         <div>
           <div>
-            <%= link_to "https://twitter.com/intent/tweet?text=#{post.content}&url=/groups/#{@group.id}/posts/#{post.id}", target: "_blank" do %>
+            <%= link_to "https://twitter.com/intent/tweet?text=#{post.content}&url=/groups/#{post.group_id}/posts/#{post.id}", target: "_blank" do %>
           <i class="fab fa-twitter"></i>
         <% end %>
             <% if current_user.bookmarks.where(post_id: post.id).empty? %>
