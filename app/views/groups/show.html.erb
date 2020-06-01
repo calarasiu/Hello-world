@@ -2,6 +2,9 @@
   <div class="rounded bg-primary p-5 mt-3">
     <h2><%= @group.name %></h2>
     <p><%= @group.description %></p>
+
+    <p class="post-count"><%= @group.posts.count > 0 ? pluralize(@group.posts.count, 'post') : "No Post" %></p>
+
     <div class = "d-flex" >
 
       <div>
@@ -21,6 +24,7 @@
       </div>
       
     </div>
+
   </div>
   <%result = Post.global_search("#{params[:query]}") %>  
   <% if result.empty?%>
