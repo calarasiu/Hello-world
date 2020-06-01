@@ -16,6 +16,9 @@
 
         <div>
           <div>
+            <%= link_to "https://twitter.com/intent/tweet?text=#{post.content}&url=/groups/#{@group.id}/posts/#{post.id}", target: "_blank" do %>
+          <i class="fab fa-twitter"></i>
+        <% end %>
             <% if current_user.bookmarks.where(post_id: post.id).empty? %>
               <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
             <% else %>
