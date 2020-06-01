@@ -1,8 +1,15 @@
 class PostsController < ApplicationController
-  def index 
+  skip_before_action :authenticate_user!, only: :show
+  def index
     # @group = Group.find(params[:group_id])
     @posts = current_user.posts
   end
+
+  def show
+    @post = Post.find(params[:id])
+    @group = Group.find(params[:group_id])
+  end
+
   def create
     @post = Post.new(post_params)
     @group = Group.find(params[:group_id])
