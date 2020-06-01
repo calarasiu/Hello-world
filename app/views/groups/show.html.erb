@@ -3,6 +3,7 @@
     <h2><%= @group.name %></h2>
     <p><%= @group.description %></p>
     <div class = "d-flex" >
+
       <div>
         <%= form_tag group_path(@group.id), method: :get do %>
         <%= text_field_tag :query,

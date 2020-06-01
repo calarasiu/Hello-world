@@ -10,7 +10,7 @@
       <div class="post-author d-flex justify-content-between align-items-center">
         <div>
           <%= avatar(post) %> 
-          <strong><%= post.user.email %></strong>
+          <strong><%= post.user.first_name %></strong>
         </div>
          <h6> <%=link_to "#{post.group.name}", group_path(post.group_id)%></h6>
 
@@ -33,6 +33,11 @@
         <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
       </div>
       <hr>
+      <div>
+        <p id = "upvote-<%post.id%>"><%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket", remote: true %></p>
+        <%= post.upvotes.count %>
+      </div>
+      <hr>
       <div class="post-comments">
         <span class="small text-muted">Comments</span>
         <!-- comments here -->
@@ -41,7 +46,7 @@
           <div class="post-author d-flex justify-content-between align-items-center">
             <div class = "d-flex align-items-center justify-content-between">
               <%= avatar(comment) %> 
-              <strong><%= comment.user.email %></strong>
+              <strong><%= comment.user.first_name %></strong>
             </div>
             <div>
               <% if current_user && current_user == comment.user %>
