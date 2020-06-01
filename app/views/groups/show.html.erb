@@ -22,16 +22,16 @@
         <%= submit_tag "Search", class: "btn btn-primary " %>
         <% end %>
       </div>
-      
+
     </div>
 
   </div>
-  <%result = Post.global_search("#{params[:query]}") %>  
+  <%result = Post.global_search("#{params[:query]}") %>
   <% if result.empty?%>
     <div class="card px-5 py-3 my-3">
       <%= render "posts/new", group: @group, post: @post %>
     </div>
-  
+
     <h2>Recent posts</h2>
     <% @posts.each do |post| %>
       <%= render 'posts/post_card', post: post %>
@@ -40,7 +40,6 @@
     <%result.each do |post| %>
       <%= render 'posts/post_card', post: post %>
     <% end %>
-  <%end %>  
+  <%end %>
 
 </div>
-  
