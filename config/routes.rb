@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:index]
   resources :comments, only: [:destroy]
   resources :posts, only: [:index]
+  resources :notifications, only: [:index]
 end
