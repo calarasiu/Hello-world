@@ -9,6 +9,7 @@
           <h2>Sign up</h2>
           <%= f.input :first_name %>
           <%= f.input :last_name %>
+          <%= f.input :photo, as: :file %>
           <%= f.input :email,
                       required: true,
                       autofocus: true,

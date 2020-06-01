@@ -1,10 +1,11 @@
-.groups{
+.groups {
   padding-top: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
 }
-.group-card{
+
+.group-card {
   border-radius: $border-radius-lg;
   color: black;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -19,33 +20,25 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-
-
 }
 
-.post-count{
+.post-count {
   font-weight:bold;
 }
 
-.card-body{
-
- }
-
- .index-group{
+ .index-group {
    display: flex;
    flex-wrap: wrap;
  }
 
- .btn-outline-dark{
-   font-weight: bold;
-  //  background-color: $bkcolor;
+ .btn-outline-dark {
+  font-weight: bold;
   border-radius: $border-radius-sm;
   width: fit-content;
   border: none;
-
  }
 
- .card-title{
+ .card-title {
   font-weight: bold;
   margin-bottom: 2px;
  }

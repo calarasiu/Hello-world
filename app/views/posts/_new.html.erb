@@ -1,4 +1,4 @@
-<%= simple_form_for [@group, @post] do |f| %>
+<%= simple_form_for([@group, @post], remote: true) do |f| %>
   <%= f.input :content, label: "Write a post to the group" %>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
