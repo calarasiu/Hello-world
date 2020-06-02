@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
 
   def send_notification
     post = @comment.post
-    message = "Someone commented on your post"
+    message = "You have a new comment on your post"
     Notification.create(comment: @comment, user: post.user, message: message)
   end
 end

@@ -4,40 +4,33 @@
     <p><%= @group.description %></p>
 
     <p class="post-count"><%= @group.posts.count> 0 ? pluralize(@group.posts.count, 'Posts') : "0 Posts" %><span class="badge badge-pill white"><i class="fas fa-comments fa-2x" aria-hidden="true"></i></span></p>
-    <div class = "d-flex" >
-
-        <%= form_tag group_path(@group.id), method: :get do |search|%>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Search in the group"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary "%>
-
-        <% end %>
-
-    </div>
-
-
-
-    <div>
-       <%= link_to "Clear search",group_path(@group.id), style: "color: gray"%>
+    
+    <%= simple_form_for :search, url: group_path(@group.id), method: :get do |f| %>
+      <div class="search-form-control form-group">
+        <%= f.input :query, class: "form-control string required", label: "Search in the group" %> 
+        <button name="button" type="submit" class="btn btn-flat">
+          <i class="fas fa-search"></i>Search
+        </button>
       </div>
+        <%= link_to "Clear search", group_path(@group.id), style: "color: white" %>
+    <% end %>
+        
   </div>
-  <%result = Post.global_search("#{params[:query]}") %>
-  <% if result.empty?%>
-    <div class="card px-5 py-3 my-3">
-      <%= render "posts/new", group: @group, post: @post %>
-    </div>
-
-    <h2>Recent posts</h2>
-    <% @posts.each do |post| %>
-      <%= render 'posts/post_card', post: post %>
-    <% end %>
-  <%else %>
-    <%result.each do |post| %>
-      <%= render 'posts/post_card', post: post %>
-    <% end %>
-  <%end %>
-
+    
+  
+  <div class="card px-5 py-3 my-3">
+    <%= render "posts/new", group: @group, post: @post %>
+  </div>
+  <h2>Recent posts</h2>
+  <% @posts.each do |post| %>
+    <%= render 'posts/post_card', post: post %>
+  <% end %>
+  
 </div>
+      
+
+
+
+
+   
+  
