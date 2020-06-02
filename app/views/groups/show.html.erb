@@ -2,8 +2,9 @@
   <div class="rounded bg-primary p-4 mt-3">
     <h2><%= @group.name %></h2>
     <p><%= @group.description %></p>
-    <p class="post-count"><%= @group.posts.count > 0 ? pluralize(@group.posts.count, 'posts') : "No Posts yet" %></p>
 
+    <p class="post-count"><%= @group.posts.count> 0 ? pluralize(@group.posts.count, 'Posts') : "0 Posts" %><span class="badge badge-pill white"><i class="fas fa-comments fa-2x" aria-hidden="true"></i></span></p>
+    
     <%= simple_form_for :search, url: group_path(@group.id), method: :get do |f| %>
       <div class="search-form-control form-group">
         <%= f.input :query, class: "form-control string required", label: "Search in the group" %> 
