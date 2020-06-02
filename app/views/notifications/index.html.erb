@@ -2,6 +2,16 @@
   <div><center><h3>Recent Activity</h3></center></div>
     <ul>
       <% @notifications.each do |notification| %>
+        <% if @notifications.any? %>
+           <%= render "notification", notification: notification %>
+        <% else %>
+          <p class='text-muted text-center'>You have no new notifications!</p>
+        <% end %>
+      <% end %>
+    </ul>
+    <div><center><h3>Old Activity</h3></center></div>
+    <ul>
+      <% @old_notifications.each do |notification| %>
          <%= render "notification", notification: notification %>
       <% end %>
     </ul>
