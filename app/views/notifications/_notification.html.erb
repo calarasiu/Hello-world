@@ -1,0 +1,11 @@
+<div class="container-notification">
+  <div class="img-notification" style="background-image: url(<%= cl_image_path notification.comment.user.photo.key %>)"></div>
+ <div class="message-notification">
+  <div>
+    <p><small><%= notification.created_at.strftime "%d/%m/%Y" %></small></p>
+  </div>
+   <div>
+     <%= link_to notification.message, group_post_path(notification.comment.post.group, notification.comment.post) %>
+   </div>
+ </div>
+</div>

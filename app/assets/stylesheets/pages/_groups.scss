@@ -15,8 +15,15 @@
   align-items: start;
 }
 
+.badge badge-pill {
+
+color:white;
+
+}
+
 .post-count{
   font-weight:bold;
+  color:white;
 }
 
  .index-group{
@@ -26,7 +33,6 @@
 
  .btn-outline-dark{
    font-weight: bold;
-  //  background-color: $bkcolor;
   border-radius: $border-radius-sm;
   width: fit-content;
   border: none;
@@ -37,4 +43,7 @@
   font-weight: bold;
   margin-bottom: 2px;
  }
-
+.container {
+  max-width: 900px;
+  margin: 50px auto;
+}

@@ -7,16 +7,18 @@
         <div class="d-flex">
           <% group.users.each do |user| %>
             <%if user.photo.attached?%>
-              <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <span class="mb-2"><%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></span>
             <%else %>
-              <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <span class="mb-2"><%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></span>
             <%end %>
           <% end %>
         </div>
       </div>
       <div>
         <p><%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %></p>
-        <p class="post-count" ><%= group.posts.count > 0 ? pluralize(group.posts.count, 'post') : "No Post" %></p>
+        <button type="button" class="btn btn-primary">
+   <p class="post-count" ><%= group.posts.count > 0 ? pluralize(group.posts.count, 'Post') : "0 Posts" %><span class="badge badge-pill white"><i class="fas fa-comments fa-2x" aria-hidden="true"></i></span></p>
+</button>
       </div>
   </div>
   <%end %>
