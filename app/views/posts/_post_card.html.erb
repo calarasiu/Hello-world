@@ -15,58 +15,20 @@
          <span class= "mr-5"><p><%=link_to "#{post.group.name}", group_path(post.group_id), class: "group-btn"%></p></span>
 
         <div>
-          <div>
-            <%= link_to "https://twitter.com/intent/tweet?text=#{post.content}&url=#{group_post_url(@group, post)}" do %>
-          <i class="fab fa-twitter"></i>
-        <% end %>
-            <% if current_user.bookmarks.where(post_id: post.id).empty? %>
-              <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
-            <% else %>
-              <%= link_to "", "#", class: "fas fa-bookmark"%>
-            <%end %>
-            <% if current_user && current_user == post.user %>
-              <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
-            <% end %>
-          </div>
+          <%= render 'posts/partials/twiter', post: post %>
+          <%= render 'posts/partials/bookmarks', post: post %>
+          <%= render 'posts/partials/delete', post: post %>  
         </div>
 
       </div>
       <hr>
-      <div class="post-body">
+      <div class="post-body ml-3">
         <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
       </div>
-      <hr>
-      <div class = "d-flex">
+      <div class = "d-flex mt-3 ml-3">
         <p id="upvote-<%=post.id%>"><%= post.upvotes.count %></p>
-        <%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket"%>
+        <span class= "ml-2"><%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket"%></span>
       </div>
       <hr>
-      <div class="post-comments">
-        <div class="small text-muted comment-button">
-          Comments (<%= post.comments.count %>)
-        </div>
-        <!-- comments here -->
-        <div class="comments-container">
-          <% post.comments.each do |comment| %>
-            <div class="bg-light mb-2 p-3 rounded">
-              <div class="post-author d-flex justify-content-between align-items-center">
-                <div class = "d-flex align-items-center justify-content-between">
-                  <%= avatar(comment) %>
-                  <span class="ml-2"><strong><%= comment.user.first_name %></strong></span>
-                </div>
-                <div>
-                  <% if current_user && current_user == comment.user %>
-                    <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "far fa-trash-alt"%>
-                  <% end %>
-                </div>
-              </div>
-              <hr>
-              <div class="comment-body">
-                <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
-              </div>
-            </div>
-          <% end %>
-          <%= render "comments/new", post: post%>
-        </div>
-      </div>
+      <%= render 'posts/partials/comments', post: post %>  
     </div>

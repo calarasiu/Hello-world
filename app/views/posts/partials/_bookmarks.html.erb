@@ -1,0 +1,5 @@
+<% if current_user.bookmarks.where(post_id: post.id).empty? %>
+  <%= link_to "", post_bookmarks_path(post.id), method: :post, class: "far fa-bookmark"%>
+<% else %>
+  <%= link_to "", "#", class: "fas fa-bookmark"%>
+<%end %>
