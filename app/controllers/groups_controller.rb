@@ -7,8 +7,12 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @post = Post.new
-    @posts = @group.posts
     @bookmark = Bookmark.new
+    if params[:search].present?
+      @posts = @group.posts.global_search("#{params[:search][:query]}") 
+    else 
+      @posts = @group.posts
+    end
   end
 end
 
