@@ -5,7 +5,7 @@
     <p><small><%= notification.created_at.strftime "%d/%m/%Y" %></small></p>
   </div>
    <div>
-     <%= notification.message %>
+     <%= link_to notification.message, group_post_path(notification.comment.post.group, notification.comment.post) %>
    </div>
  </div>
 </div>

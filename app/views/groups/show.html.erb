@@ -7,30 +7,30 @@
     
     <%= simple_form_for :search, url: group_path(@group.id), method: :get do |f| %>
       <div class="search-form-control form-group">
-        <%= f.input :query, class: "form-control string required", label: "Search in the group" %> 
+        <%= f.input :query, class: "form-control string required", label: "Search in the group" %>
         <button name="button" type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i>Search
         </button>
       </div>
         <%= link_to "Clear search", group_path(@group.id), style: "color: white" %>
     <% end %>
-        
+
   </div>
-    
-  
+
+
   <div class="card px-5 py-3 my-3">
     <%= render "posts/new", group: @group, post: @post %>
   </div>
-  <h2>Recent posts</h2>
+  <center><h3>Recent posts</h3></center>
   <% @posts.each do |post| %>
     <%= render 'posts/post_card', post: post %>
   <% end %>
-  
+
 </div>
-      
 
 
 
 
-   
-  
+
+
+
