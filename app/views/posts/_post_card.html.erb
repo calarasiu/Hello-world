@@ -42,27 +42,31 @@
       </div>
       <hr>
       <div class="post-comments">
-        <span class="small text-muted">Comments</span>
-        <!-- comments here -->
-        <% post.comments.each do |comment| %>
-        <div class="bg-light mb-2 p-3 rounded">
-          <div class="post-author d-flex justify-content-between align-items-center">
-            <div class = "d-flex align-items-center justify-content-between">
-              <%= avatar(comment) %>
-              <span class="ml-2"><strong><%= comment.user.first_name %></strong></span>
-            </div>
-            <div>
-              <% if current_user && current_user == comment.user %>
-                <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "far fa-trash-alt"%>
-              <% end %>
-            </div>
-          </div>
-          <hr>
-          <div class="comment-body">
-            <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
-          </div>
+        <div class="small text-muted comment-button">
+          Comments (<%= post.comments.count %>)
         </div>
-        <% end %>
-        <%= render "comments/new", post: post%>
+        <!-- comments here -->
+        <div class="comments-container">
+          <% post.comments.each do |comment| %>
+            <div class="bg-light mb-2 p-3 rounded">
+              <div class="post-author d-flex justify-content-between align-items-center">
+                <div class = "d-flex align-items-center justify-content-between">
+                  <%= avatar(comment) %>
+                  <span class="ml-2"><strong><%= comment.user.first_name %></strong></span>
+                </div>
+                <div>
+                  <% if current_user && current_user == comment.user %>
+                    <%= link_to "", comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: "far fa-trash-alt"%>
+                  <% end %>
+                </div>
+              </div>
+              <hr>
+              <div class="comment-body">
+                <p id="comment-<%= comment.id %>"><%= comment.content_with_links %></p>
+              </div>
+            </div>
+          <% end %>
+          <%= render "comments/new", post: post%>
+        </div>
       </div>
     </div>

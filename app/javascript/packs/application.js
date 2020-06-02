@@ -31,4 +31,18 @@ import "bootstrap";
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+
+  let commentButtons = document.querySelectorAll('.comment-button');
+  commentButtons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.target.nextElementSibling.classList.toggle('show-comments');
+      let text = event.target.querySelector('.comment-text')
+      // if (text.innerText == "Show Comments") {
+      //   text.innerText = "Hide Comments";
+      // } else {
+      //   text.innerText = "Show Comments";
+      // }
+    })
+  })
+
 });
