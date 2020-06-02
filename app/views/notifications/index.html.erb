@@ -1,10 +1,8 @@
-<div>
-  <h1>Hi there here are your new notifications</h1>
+<div class="container">
+  <div><center><h3>Recent Activity</h3></center></div>
     <ul>
       <% @notifications.each do |notification| %>
-       <li>
-         <%= render "posts/post_card", post: notification.comment.post %>
-       </li>
+         <%= render "notification", notification: notification %>
       <% end %>
     </ul>
 </div>
