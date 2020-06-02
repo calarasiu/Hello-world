@@ -12,7 +12,7 @@
           <%= avatar(post) %>
           <strong ><%= post.user.first_name%></strong>
         </div>
-         <h6 ><%=link_to "#{post.group.name}", group_path(post.group_id)%></h6>
+         <span class= "mr-5"><p><%=link_to "#{post.group.name}", group_path(post.group_id), class: "group-btn"%></p></span>
 
         <div>
           <div>
@@ -36,9 +36,9 @@
         <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
       </div>
       <hr>
-      <div>
-        <%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket"%>
+      <div class = "d-flex">
         <p id="upvote-<%=post.id%>"><%= post.upvotes.count %></p>
+        <%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket"%>
       </div>
       <hr>
       <div class="post-comments">
