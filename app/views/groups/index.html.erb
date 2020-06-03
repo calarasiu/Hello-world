@@ -13,12 +13,12 @@
               <% end %>
           <% group_users = group.users.first(5) %>
             <% group_users.drop(1).each do |user| %>
-              <% if user.photo.attached? %>
               <div class="avatars">
-                  <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% else %>
-                  <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                <% end %>
+                <% if user.photo.attached? %>
+                    <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% else %>
+                    <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                  <% end %>
               </div>
             <% end %>
           <% end %>
@@ -26,13 +26,15 @@
       </div>
 
       <div class="d-flex justify-content-between w-100">
-        <div><%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %></div>
+        <div>
+          <%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %>
+        </div>
           <div class="btn btn-grey white ">
             <span><%= group.posts.count > 0 ? pluralize(group.posts.count, 'Post') : "0 Posts" %>
                 <i class="fas fa-comments" aria-hidden="true" class="font-weight-bold"></i>
               </span>
           </div>
-      </div>
+        </div>
     </div>
   <% end %>
 </div>
