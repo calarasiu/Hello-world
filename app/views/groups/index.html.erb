@@ -5,7 +5,8 @@
         <h5 class="card-title"><%=group.name %></h5>
         <p class="card-text"><%= group.description %></p>
         <div class="d-flex">
-          <% group.users.each do |user| %>
+        <% group_users = group.users.first(5) %>
+          <% group_users.each do |user| %>
             <% if user.photo.attached? %>
               <span class="mb-2"><%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></span>
             <% else %>
