@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   def index
-    # @group = Group.find(params[:group_id])
     @posts = current_user.posts
   end
 
@@ -20,12 +19,11 @@ class PostsController < ApplicationController
     else
       flash[:notice] = "You need to login before adding a post"
       # render "posts/new" we don't need to render because we are staying on the same page
-
     end
   end
 
+
   def destroy
-    # @post = Post.find(params[:id])
     @post = current_user.posts.find(params[:id])
     @group = @post.group
     @post.destroy

@@ -1,10 +1,10 @@
-.groups{
+.groups {
   padding-top: 24px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 24px;
+  grid-gap: 50px;
 }
-.group-card{
+.group-card {
   border-radius: $border-radius-lg;
   color: black;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
@@ -15,36 +15,34 @@
   align-items: start;
 }
 
-
-
-.posts-count{
+.posts-count {
   font-weight:bold;
   font-size: 15px;
   color:white;
 }
-.post-count{
-  color:white;
+
+.btn-grey {
   background-color: lightgrey;
-  border-radius:4px;
+  color:white;
 }
 
- .index-group{
+ .index-group {
    display: flex;
    flex-wrap: wrap;
  }
 
- .btn-outline-dark{
+ .btn-outline-dark {
    font-weight: bold;
   border-radius: $border-radius-sm;
   width: fit-content;
   border: none;
-
  }
 
- .card-title{
+ .card-title {
   font-weight: bold;
   margin-bottom: 2px;
  }
+
 .container {
   max-width: 900px;
   margin: 50px auto;

@@ -1,0 +1,5 @@
+<div class = "ml-2">
+  <% if current_user && current_user == post.user %>
+    <%= link_to "", post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt"%>
+  <% end %>
+</div>

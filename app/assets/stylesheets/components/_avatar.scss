@@ -6,6 +6,13 @@
   border: 1px solid $primary;
 }
 
+.avatars {
+  margin-left: -18px;
+  margin-bottom: 4px;
+  // direction: rtl;  /* This is to get the stack with left on top */
+  text-align: left;  /* Now need to explitly align left */
+  padding-left: 12px;  /* Same value as the negative margin */
+}
 
 .avatar-large {
   width: 56px;
@@ -23,3 +30,8 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
 }
+// .d-flex {
+//   .avatars {
+//     margin-left: 2px;
+//   }
+// }
