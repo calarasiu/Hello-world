@@ -9,9 +9,12 @@
 .avatars {
   margin-left: -18px;
   margin-bottom: 4px;
-  // direction: rtl;  /* This is to get the stack with left on top */
-  text-align: left;  /* Now need to explitly align left */
-  padding-left: 12px;  /* Same value as the negative margin */
+  text-align: left;
+  padding-left: 12px;
+}
+
+.avatar-list {
+  height: 50px;
 }
 
 .avatar-large {
