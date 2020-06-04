@@ -16,7 +16,7 @@
                 <% else %>
                   <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                 <% end %>
-            <% group_users = group.users.first(5) %>
+            <% group_users = group.users.first(4) %>
               <% group_users.drop(1).each do |user| %>
                 <div class="avatars">
                   <% if user.photo.attached? %>

@@ -19,7 +19,7 @@
   <div class="card px-5 py-3 my-3">
     <%= render "posts/new", group: @group, post: @post %>
   </div>
-  <center><h3>Recent posts</h3></center>
+  <center><h3><strong>Recent posts</strong></h3></center>
   <% @posts.each do |post| %>
     <%= render 'posts/post_card', post: post %>
   <% end %>
