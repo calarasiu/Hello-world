@@ -17,7 +17,7 @@
         <div class = "d-flex">
           <%= render 'posts/partials/twiter', post: post %>
           <%= render 'posts/partials/bookmarks', post: post %>
-          <%= render 'posts/partials/delete', post: post %>  
+          <%= render 'posts/partials/delete', post: post %>
         </div>
 
       </div>
@@ -25,10 +25,10 @@
       <div class="sidebar-box post-body ml-3">
         <p id="post-<%= post.id %>" class="card-text"><%= post.content_with_links %></p>
       </div>
-      <div class = "post-upvote d-flex  ml-3">
+      <div class = "post-upvote d-flex ml-3 mt-3">
         <p id="upvote-<%=post.id%>"><%= post.upvotes.count %></p>
         <span class= "ml-2"><%= link_to "", post_upvotes_path(post.id), method: :post, class: "fas fa-rocket", remote: true%></span>
       </div>
       <hr>
-      <%= render 'posts/partials/comments', post: post %>  
+      <%= render 'posts/partials/comments', post: post %>
     </div>
