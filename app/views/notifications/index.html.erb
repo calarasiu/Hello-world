@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-    <center><h3>Recent Activity</h3></center>
+    <center><h3 style = "color: #FE5D02"><strong>Recent Activity</strong></h3></center>
   </div>
   <div>
     <% if @notifications.any? %>
@@ -12,7 +12,7 @@
     <% end %>
   </div>
   <div>
-    <center><h3>Old Activity</h3></center>
+    <center><h3 style = "color: #FE5D02"><strong>Old Activity</strong></h3></center>
   </div>
   <div>
     <% @old_notifications.each do |notification| %>
