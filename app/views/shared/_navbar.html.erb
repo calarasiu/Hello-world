@@ -14,9 +14,6 @@
           <li class="nav-item">
             <%= link_to "Browse groups", groups_path, class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "My Account", "#", class: "nav-link" %>
-          </li>
           <span class="notification"><%= @unread_notifications %></span>
           <li class="nav-item-dropdown">
             <%if current_user.photo.attached?%>
