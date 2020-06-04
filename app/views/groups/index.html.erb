@@ -4,29 +4,30 @@
       <div class="group-info">
         <h5 class="card-title"><%=group.name %></h5>
         <p class="card-text"><%= group.description %></p>
-        <div class="d-flex avatar-list">
-          <% if group.users.length > 0 %>
-            <% if group.users.first.photo.attached? %>
-                <%= cl_image_tag group.users.first.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% else %>
-                <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <% end %>
-          <% group_users = group.users.first(5) %>
-            <% group_users.drop(1).each do |user| %>
-              <div class="avatars">
-                <% if user.photo.attached? %>
-                    <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  <% else %>
-                    <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-                  <% end %>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
+
       </div>
 
-      <div class="d-flex justify-content-between w-100">
+      <div class="d-flex justify-content-between align-items-end w-100">
         <div>
+          <div class="d-flex avatar-list mt-3">
+            <% if group.users.length > 0 %>
+              <% if group.users.first.photo.attached? %>
+                  <%= cl_image_tag group.users.first.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% else %>
+                  <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                <% end %>
+            <% group_users = group.users.first(5) %>
+              <% group_users.drop(1).each do |user| %>
+                <div class="avatars">
+                  <% if user.photo.attached? %>
+                      <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% else %>
+                      <%= image_tag "avatar.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <% end %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
           <%= link_to "Check out the group", group_path(group.id), class: "btn btn-primary" %>
         </div>
           <div class="btn btn-grey white ">
