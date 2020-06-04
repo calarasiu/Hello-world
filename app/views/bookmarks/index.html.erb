@@ -1,6 +1,6 @@
 <div class = "container">
   <div class="my-2" >
-  <center><h3 style = "color: #FE5D02" class = "mb-4"><strong>My bookmarks</strong></h3></center>
+  <center><h3 class = "mb-4"><strong>My bookmarks</strong></h3></center>
     <%@bookmarks.each do |b| %>
       <%= render 'posts/post_card', post: b.post %>
     <% end %>
