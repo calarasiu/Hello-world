@@ -32,13 +32,22 @@ body{
 }
 
 .footer {
+
   font-size: 20px;
   margin-bottom: 20px;
   background: white;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  // align-items: center;
+  // justify-content: center;
   height: 100px;
-  padding: 0px 50px;
+  padding: 50px 20px;
   color: rgba(0,0,0,0.3);
+}
+
+.footer p {
+  align-items: space-around;
+}
+
+.footer-links a {
+  margin-left: 6px;
 }
