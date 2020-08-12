@@ -49,19 +49,19 @@
 # puts "create bookmark"
 # bookmark = Bookmark.create!(post: post, user_id: 3)
 # puts "bookmark created"
-# Group.create!(name:"Front-end technology", description: "Share knowledge and resources about essential front-end technologies like HTML5, CSS3, JavaScript")
-# Group.create!(name:"Ruby masters", description: "Get help on your Ruby journey or share your experience")
-# Group.create!(name:"Database wizards", description: "Discover or share the mysteries behind databases")
-# Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
-# Group.create!(name:"Javascript semi-colons", description: "If you love javascript and curly brackets, join the group")
-# Group.create!(name:"Junior developers", description: "Find help and all the junior developers to progress together")
-# Group.create!(name:"Job hunting support", description: "Find the best tips and exchange experiences")
-# Group.create!(name:"Portfolios and projects", description: "Share your projects and portfolios and get feedbacks")
-# Group.create!(name:"Women in tech", description: "Comunity that promotes gender diversity in tech")
+Group.create!(name:"Front-end technology", description: "Share knowledge and resources about essential front-end technologies like HTML5, CSS3, JavaScript")
+Group.create!(name:"Ruby masters", description: "Get help on your Ruby journey or share your experience")
+Group.create!(name:"Database wizards", description: "Discover or share the mysteries behind databases")
+Group.create!(name:"The artists of websites", description: "Find inspiration and inspire other users with your design ideas")
+Group.create!(name:"Javascript semi-colons", description: "If you love javascript and curly brackets, join the group")
+Group.create!(name:"Junior developers", description: "Find help and all the junior developers to progress together")
+Group.create!(name:"Job hunting support", description: "Find the best tips and exchange experiences")
+Group.create!(name:"Portfolios and projects", description: "Share your projects and portfolios and get feedbacks")
+Group.create!(name:"Women in tech", description: "Comunity that promotes gender diversity in tech")
 
 
 
-# puts "group created"
+puts "group created"
 
 
 
